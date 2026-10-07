@@ -1,0 +1,107 @@
+/* Step 2: CSS Grid & Flexbox Layout */
+
+/* Theme Variables */
+:root {
+  --brand-color: #4CAF50;
+  --accent-color: #FF9800;
+  --surface-color: #F5F5F5;
+  --text-primary: #333333;
+  --text-secondary: #777777;
+}
+
+/* Dark Theme (Stretch Goal) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-color: #1E1E1E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #BBBBBB;
+  }
+}
+
+/* Global Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+/* Dashboard Grid */
+.dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--brand-color);
+  color: white;
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 0.5rem 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Cards Section */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex; /* Flexbox inside card */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #1E1E1E;
+}
+
+/* Micro-interactions */
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    grid-row: 2;
+  }
+}
